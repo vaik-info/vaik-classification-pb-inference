@@ -67,7 +67,7 @@ class PbModel:
         output_dict_list = []
         pred_index = np.argsort(-pred, axis=-1)
         for index in range(pred.shape[0]):
-            output_dict = {'score': pred[index][pred_index[index]],
+            output_dict = {'score': pred[index][pred_index[index]].tolist(),
                            'label': [self.classes[class_index] for class_index in pred_index[index]]}
             output_dict_list.append(output_dict)
         return output_dict_list
