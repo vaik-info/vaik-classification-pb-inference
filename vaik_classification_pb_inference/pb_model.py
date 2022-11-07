@@ -71,17 +71,3 @@ class PbModel:
                            'label': [self.classes[class_index] for class_index in pred_index[index]]}
             output_dict_list.append(output_dict)
         return output_dict_list
-
-
-import os
-
-input_saved_model_path = os.path.expanduser(
-    '~/output_model/2022-11-07-16-15-49/step-1000_batch-8_epoch-9_loss_0.0818_sparse_categorical_accuracy_0.9737_val_loss_0.0595_val_sparse_categorical_accuracy_0.9890')
-classes = ('zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine')
-image = np.asarray(
-    Image.open(os.path.expanduser('~/.vaik-mnist-classification-dataset/valid/eight/valid_000000024.jpg')).convert('RGB'))
-
-a_model = PbModel(input_saved_model_path, classes)
-output, raw_pred = a_model.inference([image, image])
-print(output)
-print(raw_pred)
