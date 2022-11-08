@@ -23,7 +23,7 @@ from vaik_classification_pb_inference.pb_model import PbModel
 input_saved_model_dir_path = os.path.expanduser('~/output_model/2022-11-07-16-15-49/step-1000_batch-8_epoch-9_loss_0.0818_sparse_categorical_accuracy_0.9737_val_loss_0.0595_val_sparse_categorical_accuracy_0.9890')
 classes = ('zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine')
 image = np.asarray(
-    Image.open(os.path.expanduser('~/.vaik-mnist-detection-dataset/valid/valid_000000000.jpg')).convert('RGB'))
+    Image.open(os.path.expanduser('~/.vaik-mnist-classification-dataset/valid/eight/valid_000000024.jpg')).convert('RGB'))
 
 model = PbModel(input_saved_model_dir_path, classes)
 objects_dict_list, raw_pred = model.inference([image], batch_size=1)
