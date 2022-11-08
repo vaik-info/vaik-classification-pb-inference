@@ -1,4 +1,4 @@
-# vaik-classification-trt-inference
+# vaik-classification-pb-inference
 
 Inference by classification PB model
 
