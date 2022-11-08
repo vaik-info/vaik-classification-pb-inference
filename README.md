@@ -26,7 +26,7 @@ image = np.asarray(
     Image.open(os.path.expanduser('~/.vaik-mnist-classification-dataset/valid/eight/valid_000000024.jpg')).convert('RGB'))
 
 model = PbModel(input_saved_model_dir_path, classes)
-objects_dict_list, raw_pred = model.inference([image], batch_size=1)
+output, raw_pred = model.inference([image], batch_size=1)
 ```
 
 #### Output
