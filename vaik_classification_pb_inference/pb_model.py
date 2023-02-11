@@ -29,7 +29,7 @@ class PbModel:
                                  self.model_output_dtype).numpy()
         for index in range(0, resize_input_tensor.shape[0], batch_size):
             batch = resize_input_tensor[index:index + batch_size, :, :, :]
-            batch_pad = tf.zeros((batch_size + self.model_input_shape[1:]), self.model_input_dtype).numpy()
+            batch_pad = tf.zeros(((batch_size, ) + self.model_input_shape[1:]), self.model_input_dtype).numpy()
             batch_pad[:batch.shape[0], :, :, :] = batch
             raw_pred = self.model(batch_pad)
             output_tensor[index:index + batch.shape[0], :] = raw_pred[:index + batch.shape[0]]
