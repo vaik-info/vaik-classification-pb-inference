@@ -32,7 +32,7 @@ class PbModel:
             batch_pad = tf.zeros(((batch_size, ) + self.model_input_shape[1:]), self.model_input_dtype).numpy()
             batch_pad[:batch.shape[0], :, :, :] = batch
             raw_pred = self.model(batch_pad)
-            output_tensor[index:index + batch.shape[0], :] = raw_pred[:index + batch.shape[0]]
+            output_tensor[index:index + batch.shape[0], :] = raw_pred[:batch.shape[0]]
         return output_tensor
 
     def __preprocess_image_list(self, input_image_list: List[np.ndarray],
